@@ -1,5 +1,20 @@
 class IndexController < ApplicationController
   def index
+    return unless session[:oauth]
+
+    access_token = OAuth::AccessToken.new(
+      self.class.consumer,
+      session[:oauth][:token],
+      session[:oauth][:secret]
+    )
+
+    rubytter = OAuthRubytter.new(access_token)
+
+    begin
+      @tweets = rubytter.friends_timeline
+    rescue Rubytter::APIError
+      session.delete :oauth
+    end
   end
 
   def oauth
