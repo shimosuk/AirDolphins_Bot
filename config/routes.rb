@@ -1,9 +1,9 @@
 AirDolphinsBot::Application.routes.draw do
-  get "index/index"
+  root to: "index#index", as: :index
 
-  get "index/oauth"
+  get "/oauth" => "index#oauth", as: :oauth
 
-  get "index/callback"
+  get "/callback" => "index#callback", as: :callback
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
