@@ -1,4 +1,10 @@
 AirDolphinsBot::Application.routes.draw do
+  get "index/index"
+
+  get "index/oauth"
+
+  get "index/callback"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
