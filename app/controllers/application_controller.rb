@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
 
   protected
   def self.consumer
-    OAuth: :Consumer.new(
-      'comsumerKey',
-      'comsumerSecret',
-      {site: "http://twitter.com"}
+    OAuth::Consumer.new(
+      ENV[CONSUMER_KEY],
+      ENV[CONSUMER_SECRET],
+      {site: "http://api.twitter.com"}
     )
   end
 end
