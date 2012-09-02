@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   protected
   def self.consumer
     OAuth::Consumer.new(
-      ENV[CONSUMER_KEY],
-      ENV[CONSUMER_SECRET],
+      ENV['CONSUMER_KEY'],
+      ENV['CONSUMER_SECRET'],
       {site: "http://api.twitter.com"}
     )
   end
