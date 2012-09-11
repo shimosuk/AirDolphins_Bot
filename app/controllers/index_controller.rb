@@ -6,4 +6,14 @@ class IndexController < ApplicationController
 
   end
 
+  def update
+
+    tweet = params[:tweet]
+    day = Time.now
+
+    rubytter = OAuthRubytter.new(self.class.token)
+    rubytter.update("#{tweet} \(#{day}\)")
+
+    redirect_to :index
+  end
 end

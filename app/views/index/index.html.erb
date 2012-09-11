@@ -1,3 +1,9 @@
+<div id="tweet_update">
+  <%= form_tag(:controller=>"index", :action=>"update") do %>
+    <%= text_field_tag "tweet" %>
+    <%= submit_tag("ツイートする") %>
+  <% end %>
+</div>
 <div id="friends_timeline">
   <dl>
     <%= @tweets.each do |t| %>

@@ -1,6 +1,8 @@
 AirDolphinsBot::Application.routes.draw do
   root to: "index#index", as: :index
 
+  post "/update" => "index#update", as: :update
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
