@@ -16,4 +16,13 @@ class IndexController < ApplicationController
 
     redirect_to :index
   end
+
+  def reply
+    user = params[:user]
+    id = params[:id]
+    tweet = params[:tweet]
+    rubytter = OAuthRubytter.new(self.class.token)
+    rubytter.update("@#{user} #{tweet}", :in_reply_to_status_id => id)
+    redirect_to :index
+  end
 end
