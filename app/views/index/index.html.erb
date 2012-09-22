@@ -10,6 +10,12 @@
     <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
     <dd><%= t.user.name %></dd>
     <dd><%= t.text %></dd>
+      <%= form_tag(:controller=>"index", :action=>"reply") do %>
+        <%= text_field_tag "tweet" %>
+        <%= hidden_field_tag(:id, t.id_str) %>
+        <%= hidden_field_tag(:user, t.user.screen_name) %>
+        <%= submit_tag("reply") %>
+      <% end %>
     <% end %>
   </dl>
 </div>
