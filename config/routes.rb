@@ -3,6 +3,8 @@ AirDolphinsBot::Application.routes.draw do
 
   post "/update" => "index#update", as: :update
 
+  post "/reply" => "index#reply", as: :reply
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
