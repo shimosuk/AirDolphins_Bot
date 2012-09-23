@@ -7,7 +7,7 @@ AirDolphinsBot::Application.routes.draw do
 
   #OmniAuth
   match "/auth/:provider/callback" => "sessions#callback"
-  match "/logout" => "sessions#destory", :as => :logout
+  match "/logout" => "sessions#destroy", :as => :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
