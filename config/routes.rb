@@ -5,6 +5,10 @@ AirDolphinsBot::Application.routes.draw do
 
   post "/reply" => "index#reply", as: :reply
 
+  #OmniAuth
+  match "/auth/:provider/callback" => "sessions#callback"
+  match "/logout" => "sessions#destory", :as => :logout
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
