@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  helper_metod :current_user
+  helper_method :current_user
 
   private
   def current_user
