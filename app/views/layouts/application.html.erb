@@ -10,7 +10,7 @@
 
 <% if current_user %>
   <%= current_user.name %>さん <%= link_to 'ログアウト', logout_path %>
-<%= yield %>
+  <%= yield %>
 <% else %>
   <%= link_to 'Twitterでログイン', '/auth/twitter' %>
 <% end %>
