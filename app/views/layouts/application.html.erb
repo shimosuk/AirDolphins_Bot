@@ -9,7 +9,7 @@
 <body>
 
 <% if current_user %>
-  <%= current_user.name %>さん <%= link_to 'ログアウト', logout_path %>
+  ユーザ名：<%= current_user.name %> @<%= current_user.screen_name %> <%= link_to 'ログアウト', logout_path %>
   <%= yield %>
 <% else %>
   <%= link_to 'Twitterでログイン', '/auth/twitter' %>
