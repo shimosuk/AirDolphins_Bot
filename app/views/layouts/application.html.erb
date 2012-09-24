@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
+<% if current_user %>
+  ユーザ名：<%= current_user.name %> @<%= current_user.screen_name %> <%= link_to 'ログアウト', logout_path %>
+  <%= yield %>
+<% else %>
+  <%= link_to 'Twitterでログイン', '/auth/twitter' %>
+<% end %>
 
 </body>
 </html>
