@@ -1,6 +1,7 @@
 <div id="tweet_update">
   <%= form_tag(:controller=>"index", :action=>"update") do %>
     <%= text_field_tag "tweet" %>
+    <%= hidden_field_tag(:speaker, current_user.screen_name) %>
     <%= submit_tag("ツイートする") %>
   <% end %>
 </div>
@@ -14,6 +15,7 @@
         <%= text_field_tag "tweet" %>
         <%= hidden_field_tag(:id, t.id_str) %>
         <%= hidden_field_tag(:user, t.user.screen_name) %>
+        <%= hidden_field_tag(:speaker, current_user.screen_name) %>
         <%= submit_tag("reply") %>
       <% end %>
     <% end %>
