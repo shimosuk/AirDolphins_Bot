@@ -9,10 +9,10 @@ class IndexController < ApplicationController
   def update
 
     tweet = params[:tweet]
-    day = Time.now
+    speaker = User.find(session[:user_id]).screen_name
 
     rubytter = OAuthRubytter.new(self.class.token)
-    rubytter.update("#{tweet} \(#{day}\)")
+    rubytter.update("#{tweet} (tweet by #{speaker})")
 
     redirect_to :index
   end
@@ -21,8 +21,10 @@ class IndexController < ApplicationController
     user = params[:user]
     id = params[:id]
     tweet = params[:tweet]
+    speaker = User.find(session[:user_id]).screen_name
+
     rubytter = OAuthRubytter.new(self.class.token)
-    rubytter.update("@#{user} #{tweet}", :in_reply_to_status_id => id)
+    rubytter.update("@#{user} #{tweet} \(tweet by #{speaker}\)", :in_reply_to_status_id => id)
     redirect_to :index
   end
 end
