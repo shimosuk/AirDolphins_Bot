@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.select :type, [["練習", 1],["試合", 1]] %>
   </div>
   <div class="actions">
     <%= f.submit %>
