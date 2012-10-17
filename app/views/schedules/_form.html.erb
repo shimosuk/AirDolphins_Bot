@@ -13,7 +13,12 @@
 
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.datetime_select :date,
+                          :default => {:month => Time.now.month, :day => 1, :hour => 18, :min => 30},
+                          :start_year => Time.now.year,
+                          :use_month_numbers => true,
+                          :minute_step => 30
+    %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
