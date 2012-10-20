@@ -5,6 +5,9 @@ class SchedulesController < ApplicationController
   def index
     @schedules = Schedule.all
 
+    rubytter = OAuthRubytter.new(self.class.token)
+    @timeline = rubytter.user_timeline("781825164")
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }
