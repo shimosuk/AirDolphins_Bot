@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
     date = params[:date]
     site = params[:location]
     rubytter = OAuthRubytter.new(self.class.token)
-    rubytter.update("日時: #{date} \n場所: #{site} #練習日")
+    rubytter.update("日時: #{date} \n場所: #{site} #練習日\n(#{Time.now.strftime("at %H:%M:%S") })")
 
     redirect_to :schedules
   end
