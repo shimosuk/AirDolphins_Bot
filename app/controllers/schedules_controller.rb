@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
@@ -8,6 +9,16 @@ class SchedulesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @schedules }
     end
+  end
+
+  def tweet
+
+    date = params[:date]
+    site = params[:location]
+    rubytter = OAuthRubytter.new(self.class.token)
+    rubytter.update("日時: #{date} \n場所: #{site} #練習日")
+
+    redirect_to :schedules
   end
 
   # GET /schedules/1
