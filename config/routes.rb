@@ -1,6 +1,8 @@
 AirDolphinsBot::Application.routes.draw do
   resources :schedules
 
+  post "/tweet" => "schedules#tweet", as: :tweet
+
   root to: "index#index", as: :index
 
   post "/update" => "index#update", as: :update

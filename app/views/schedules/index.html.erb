@@ -1,27 +1,49 @@
 <h1>Listing schedules</h1>
 
+<div id="schedule_list">
 <table>
   <tr>
+    <th></th>
     <th>Date</th>
     <th>Location</th>
-    <th>Type</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @schedules.each do |schedule| %>
+<% year=schedule.date.to_s.slice(0..4) %>
+<% month=schedule.date.to_s.slice(5..7) %>
+<% day=schedule.date.to_s.slice(8..10) %>
+<% hour=schedule.date.to_s.slice(11..13) %>
+<% minute=schedule.date.to_s.slice(14..16) %>
+<% date=Time.new(year, month, day, hour, minute).strftime("%m月%d日 %H:%M") %>
   <tr>
-    <td><%= schedule.date %></td>
+    <td>
+      <%= form_tag(:controller=>"schedules", :action=>"tweet") do %>
+        <%= hidden_field_tag(:date, date) %>
+        <%= hidden_field_tag(:location, schedule.location) %>
+        <%= submit_tag("tweet") %>
+      <% end %>
+    </td>
+    <td><%= date %></td>
     <td><%= schedule.location %></td>
-    <td><%= schedule.action %></td>
     <td><%= link_to 'Show', schedule %></td>
     <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
     <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
 <%= link_to 'New Schedule', new_schedule_path %>
+</div>
+
+<div id="timeline">
+  <dl>
+    <% @timeline.each do |t| %>
+    <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
+    <dd><%= t.user.name %></dd>
+    <dd><%= t.text %></dd>
+    <% end %>
+  </dl>
+<br />
+</div>
