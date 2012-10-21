@@ -1,9 +1,34 @@
 body {
+  padding-top: 20pt;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  text-align:center;
+}
+
+#team {
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 100px;
+}
+
+.login {
+  margin-top: 100pt;
+  span {
+    padding: 15pt;
+    font-size: 20pt;
+    outline: double #09D7F3;
+  }
+}
+
+div#main {
+  margin-left: auto;
+  margin-right: auto;
+  text-align:left;
+  font-size: 13px;
+  width: 60%;
 }
 
 p, ol, ul, td {
