@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.all
 
     rubytter = OAuthRubytter.new(self.class.token)
-    @timeline = rubytter.user_timeline("781825164")
+    @timeline = rubytter.user_timeline("781825164", {"count" => 10})
 
     respond_to do |format|
       format.html # index.html.erb

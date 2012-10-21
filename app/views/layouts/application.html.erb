@@ -8,12 +8,14 @@
 </head>
 <body>
 
+<span id="team">AirDolphins</span>
 <% if current_user %>
-  ユーザ名：<%= current_user.name %> @<%= current_user.screen_name %> <%= link_to 'ログアウト', logout_path %>
+  <span class="logout">Hello <%= current_user.name %> @<%= current_user.screen_name %> <%= link_to 'ログアウト', logout_path %></span>
+  <div id="main">
   <%= yield %>
+  </div>
 <% else %>
-  <%= link_to 'Twitterでログイン', '/auth/twitter' %>
+  <div class="login"><span><%= link_to 'Twitterでログイン', '/auth/twitter' %></span></div>
 <% end %>
-
 </body>
 </html>

@@ -1,3 +1,12 @@
 // Place all the styles related to the schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#schedule_list {
+  float: left;
+}
+#timeline {
+  padding: 5pt;
+  outline: double #09D7F3;
+  width: 300pt;
+  float: right;
+}
