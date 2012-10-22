@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018151132) do
+ActiveRecord::Schema.define(:version => 20121021042803) do
 
   create_table "schedules", :force => true do |t|
     t.datetime "date"
