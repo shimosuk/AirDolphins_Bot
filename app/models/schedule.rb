@@ -1,3 +1,3 @@
 class Schedule < ActiveRecord::Base
-  attr_accessible :date, :location, :action
+  attr_accessible :action, :date, :location
 end
