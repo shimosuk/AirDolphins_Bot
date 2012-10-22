@@ -3,7 +3,7 @@ class CreateSchedules < ActiveRecord::Migration
     create_table :schedules do |t|
       t.datetime :date
       t.text :location
-      t.string :type
+      t.string :action
 
       t.timestamps
     end
