@@ -4,7 +4,7 @@ class IndexController < ApplicationController
 
     rubytter = OAuthRubytter.new(self.class.token)
     @tweets = rubytter.friends_timeline
-    @follower = rubytter.friends("781825164")
+    @members = User.all
 
   end
 
