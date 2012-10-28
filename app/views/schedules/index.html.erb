@@ -37,6 +37,7 @@
 <%= link_to 'New Schedule', new_schedule_path %>
 </div>
 
+<% if !request.smart_phone? %>
 <div id="timeline">
   <dl>
     <% @timeline.each do |t| %>
@@ -47,3 +48,4 @@
   </dl>
 <br />
 </div>
+<% end %>
