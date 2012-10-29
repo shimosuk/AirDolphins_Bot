@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021042803) do
+ActiveRecord::Schema.define(:version => 20121029144158) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.string   "position"
+    t.string   "uid"
+    t.string   "mail"
+    t.date     "birthday"
+    t.text     "etc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "schedules", :force => true do |t|
     t.datetime "date"

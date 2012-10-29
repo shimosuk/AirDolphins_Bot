@@ -1,4 +1,6 @@
 AirDolphinsBot::Application.routes.draw do
+  resources :profiles
+
   resources :schedules
 
   post "/tweet" => "schedules#tweet", as: :tweet
