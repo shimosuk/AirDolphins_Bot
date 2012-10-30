@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
       user.screen_name = auth["info"]["nickname"]
     end
   end
+
+  def self.find_user(provider, uid)
+    find_by_provider_and_uid(provider, uid)
+  end
 end
