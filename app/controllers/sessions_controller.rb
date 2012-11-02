@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
       user = User.create_with_omniauth(auth)
       profile = Profile.create(user.name, user.uid)
     end
-      session[:user_id] = user.id
-    redirect_to :profiles
+    session[:user_id] = user.id
+    redirect_to :edit_profile
   end
 
   def destroy
