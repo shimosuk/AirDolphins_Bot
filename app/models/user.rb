@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :screen_name, :uid
-  has_one :profile, foreign_key: :uid, primary_key: :uid
+  has_one :profile, foreign_key: :user_id, primary_key: :id
 
   class << self
     def create_with_omniauth(auth)

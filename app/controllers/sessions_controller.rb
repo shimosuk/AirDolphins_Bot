@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def callback
     auth = request.env["omniauth.auth"]
     user = User.find_user(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-    profile = user.profile || Profile.create(user.name, user.uid)
+    profile = user.profile || Profile.create(user.id, user.name, user.uid)
 
     session[:user_id] = user.id
     redirect_to :edit_profile
