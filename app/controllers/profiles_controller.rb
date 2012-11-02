@@ -1,15 +1,4 @@
 class ProfilesController < ApplicationController
-  # GET /profiles
-  # GET /profiles.json
-  def index
-    @profiles = Profile.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @profiles }
-    end
-  end
-
   # GET /profiles/1
   # GET /profiles/1.json
   def show
@@ -17,17 +6,6 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @profile }
-    end
-  end
-
-  # GET /profiles/new
-  # GET /profiles/new.json
-  def new
-    @profile = Profile.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.json { render json: @profile }
     end
   end
@@ -66,18 +44,6 @@ class ProfilesController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
-  def destroy
-    @profile = Profile.find(params[:id])
-    @profile.destroy
-
-    respond_to do |format|
-      format.html { redirect_to profiles_url }
-      format.json { head :no_content }
     end
   end
 end

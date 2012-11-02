@@ -20,7 +20,7 @@
 <% if current_user %>
   <span class="logout">Hello <%= current_user.name %> @<%= current_user.screen_name %> <%= link_to 'ログアウト', logout_path %></span>
   <div id="main">
-    <p class="link"><%= link_to 'Top', index_path %> / <%= link_to 'Schedule', schedules_path %></p>
+    <p class="link"><%= link_to 'Top', index_path %> / <%= link_to 'Schedule', schedules_path %> / <%= link_to 'My Profile', profile_path %></p>
     <%= yield %>
   </div>
 <% else %>
