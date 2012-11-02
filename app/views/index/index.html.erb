@@ -9,7 +9,7 @@
   <div id="members">
     <dl>
       <% @members.each do |member| %>
-      <dt><span class="name"><%= member.name %></span><span class="sc_name">@<%= member.screen_name %></span></dt>
+      <dt><span class="no">No.<%= member.number %></span> </span>(<span class="position"><%= member.position %>)</span> : <span class="name"><%= member.name %></dt>
       <% end %>
     </dl>
   </div>
