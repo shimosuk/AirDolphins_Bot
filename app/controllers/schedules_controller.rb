@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.order("date")
 
     rubytter = OAuthRubytter.new(self.class.token)
     @timeline = rubytter.user_timeline("781825164", {"count" => 10})
