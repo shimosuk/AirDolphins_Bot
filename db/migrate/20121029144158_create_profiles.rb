@@ -1,0 +1,15 @@
+class CreateProfiles < ActiveRecord::Migration
+  def change
+    create_table :profiles do |t|
+      t.string :name
+      t.integer :number
+      t.string :position
+      t.string :uid
+      t.string :mail
+      t.date :birthday
+      t.text :etc
+
+      t.timestamps
+    end
+  end
+end

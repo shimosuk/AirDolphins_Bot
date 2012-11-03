@@ -1,4 +1,8 @@
 AirDolphinsBot::Application.routes.draw do
+  match "/profile/edit" => "profiles#edit", as: :edit_profile
+  put "/profile" => "profiles#update", as: :update_profile
+  get "/profile" => "profiles#show", as: :profile
+
   resources :schedules
 
   post "/tweet" => "schedules#tweet", as: :tweet
