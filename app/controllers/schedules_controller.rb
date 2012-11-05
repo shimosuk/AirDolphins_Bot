@@ -48,7 +48,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    @schedule = Schedule.find(params[:id])
+    @schedule = Schedule.edit(params[:id])
   end
 
   # POST /schedules
