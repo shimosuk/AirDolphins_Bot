@@ -3,7 +3,12 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.order("date")
+    today = Date.today
+    now = today.to_s.slice(4..7)
+    @schedules = Schedule.order("date").where("date like ?", "%#{now}%")
+
+    coming = today.next_month.to_s.slice(4..7)
+    @next_schedules = Schedule.order("date").where("date like ?", "%#{coming}%")
 
     rubytter = OAuthRubytter.new(self.class.token)
     @timeline = rubytter.user_timeline("781825164", {"count" => 10})
