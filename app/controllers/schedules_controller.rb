@@ -3,7 +3,12 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    today = Date.today
+    now = today.to_s.slice(4..7)
+    @schedules = Schedule.order("date").where("date like ?", "%#{now}%")
+
+    coming = today.next_month.to_s.slice(4..7)
+    @next_schedules = Schedule.order("date").where("date like ?", "%#{coming}%")
 
     rubytter = OAuthRubytter.new(self.class.token)
     @timeline = rubytter.user_timeline("781825164", {"count" => 10})
@@ -48,13 +53,13 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    @schedule = Schedule.find(params[:id])
+    @schedule = Schedule.edit(params[:id])
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(params[:schedule])
+    @schedule = Schedule.create(format(params))
 
     respond_to do |format|
       if @schedule.save
@@ -65,6 +70,17 @@ class SchedulesController < ApplicationController
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def format(param)
+    week = ["日", "月", "火", "水", "木", "金", "土"]
+
+    schedule = params[:schedule]
+    day = Date::new(schedule["date(1i)"].to_i, schedule["date(2i)"].to_i, schedule["date(3i)"].to_i)
+    time = "#{params[:schedule]["date(4i)"]}:#{params[:schedule]["date(5i)"]}"
+    date = "#{day.to_s}(#{week[day.wday]}) #{time}"
+
+    pram = {date: date, location: schedule[:location], action: schedule[:action]}
   end
 
   # PUT /schedules/1
