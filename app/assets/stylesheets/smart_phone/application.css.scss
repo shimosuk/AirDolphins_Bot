@@ -46,6 +46,28 @@ div#main {
   width: 80%;
 }
 
+// トップ画面
+#tweet_update {
+  padding-left: 70%;
+}
+#members {
+  table {
+    width: 100%;
+  }
+  font-size: 10pt;
+  tr {
+    td {
+      text-align: left;
+      padding: 2pt 5pt;
+    }
+    .name, .position {
+      padding: 2pt 3pt;
+      width: 45%;
+      text-align: center;
+    }
+  }
+}
+
 // スケジュール管理画面
 #schedule_list {
   fieldset {
