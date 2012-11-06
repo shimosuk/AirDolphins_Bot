@@ -13,7 +13,7 @@ class IndexController < ApplicationController
     tweet = params[:tweet]
 
     rubytter = OAuthRubytter.new(self.class.token)
-    rubytter.update("#{tweet} (tweet by #{current_user.screen_name})")
+    rubytter.update("#{tweet} (tweet by #{current_user.screen_name} #{Time.now.strftime("at %H:%M:%S") })")
 
     redirect_to :index
   end

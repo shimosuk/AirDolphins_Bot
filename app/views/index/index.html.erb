@@ -1,9 +1,11 @@
-<div id="tweet_update">
-  <%= form_tag(:controller=>"index", :action=>"update") do %>
-    <%= text_field_tag "tweet" %>
-    <%= submit_tag("ツイートする") %>
-  <% end %>
-</div>
+<% if !request.smart_phone? %>
+  <div id="tweet_update">
+    <%= form_tag(:controller=>"index", :action=>"update") do %>
+      <%= text_field_tag "tweet" %>
+      <%= submit_tag("ツイートする") %>
+    <% end %>
+  </div>
+<% end %>
 <div id="members">
   <fieldset>
     <legend>メンバーリスト</legend>

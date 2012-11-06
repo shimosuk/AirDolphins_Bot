@@ -1,5 +1,7 @@
 class Profile < ActiveRecord::Base
   attr_accessible :birthday, :etc, :mail, :name, :number, :position, :uid
+  validates :name, presence: true
+  validates :position, presence: true
   def self.create(user_id, name, uid)
     create! do |profile|
       profile.name = name

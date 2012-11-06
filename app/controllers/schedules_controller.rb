@@ -64,6 +64,10 @@ class SchedulesController < ApplicationController
     time = "#{params[:schedule]["date(4i)"]}:#{params[:schedule]["date(5i)"]}"
     date = "#{day.to_s}(#{week[day.wday]}) #{time}"
 
+    if schedule[:location].blank?
+      schedule[:location] = "未定"
+    end
+
     pram = {date: date, location: schedule[:location], action: schedule[:action]}
   end
 
