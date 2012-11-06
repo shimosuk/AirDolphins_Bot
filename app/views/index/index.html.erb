@@ -4,13 +4,17 @@
     <%= submit_tag("ツイートする") %>
   <% end %>
 </div>
-<fieldset>
-  <legend>メンバーリスト</legend>
-  <div id="members">
-    <dl>
+<div id="members">
+  <fieldset>
+    <legend>メンバーリスト</legend>
+      <table>
       <% @members.each do |member| %>
-      <dt><span class="no">No.<%= member.number %></span> </span>(<span class="position"><%= member.position %>)</span> : <span class="name"><%= member.name %></dt>
+        <tr>
+          <td class="no">No.<%= member.number %></td>
+          <td class="position"><%= member.position %></td>
+          <td class="name"><%= member.name %></td>
+        </tr>
       <% end %>
-    </dl>
-  </div>
-</fieldset>
+      </table>
+  </fieldset>
+</div>

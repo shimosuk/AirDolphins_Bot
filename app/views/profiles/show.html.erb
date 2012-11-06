@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div id="my_view">
+  <fieldset>
+    <legend>プロフィール</legend>
 <p>
   <b>Name:</b>
   <%= @profile.name %>
@@ -29,6 +32,8 @@
   <b>Etc:</b>
   <%= @profile.etc %>
 </p>
+</div>
 
-
+<div id="edit_link">
 <%= link_to 'Edit', edit_profile_path(@profile) %>
+</div>
