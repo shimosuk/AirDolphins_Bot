@@ -56,6 +56,17 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.edit(params[:id])
   end
 
+  def format(param)
+    week = ["日", "月", "火", "水", "木", "金", "土"]
+
+    schedule = params[:schedule]
+    day = Date::new(schedule["date(1i)"].to_i, schedule["date(2i)"].to_i, schedule["date(3i)"].to_i)
+    time = "#{params[:schedule]["date(4i)"]}:#{params[:schedule]["date(5i)"]}"
+    date = "#{day.to_s}(#{week[day.wday]}) #{time}"
+
+    pram = {date: date, location: schedule[:location], action: schedule[:action]}
+  end
+
   # POST /schedules
   # POST /schedules.json
   def create
@@ -72,24 +83,13 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def format(param)
-    week = ["日", "月", "火", "水", "木", "金", "土"]
-
-    schedule = params[:schedule]
-    day = Date::new(schedule["date(1i)"].to_i, schedule["date(2i)"].to_i, schedule["date(3i)"].to_i)
-    time = "#{params[:schedule]["date(4i)"]}:#{params[:schedule]["date(5i)"]}"
-    date = "#{day.to_s}(#{week[day.wday]}) #{time}"
-
-    pram = {date: date, location: schedule[:location], action: schedule[:action]}
-  end
-
   # PUT /schedules/1
   # PUT /schedules/1.json
   def update
     @schedule = Schedule.find(params[:id])
 
     respond_to do |format|
-      if @schedule.update_attributes(params[:schedule])
+      if @schedule.update_attributes(format(params))
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
         format.json { head :no_content }
       else
