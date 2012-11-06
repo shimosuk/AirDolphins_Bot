@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>* 必須<br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :number %><br />
+    <%= f.label :number %> - 希望でもいいよ<br />
     <%= f.number_field :number %>
   </div>
   <div class="field">
@@ -24,12 +24,12 @@
     <%= f.text_field :position %>
   </div>
   <div class="field">
-    <%= f.label :mail %><br />
+    <%= f.label :mail %> - いつかメール出します<br />
     <%= f.text_field :mail %>
   </div>
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.date_select :birthday, :start_year => 1988, :end_year => Time.now.year-15, :use_month_numbers => true %>
   </div>
   <div class="field">
     <%= f.label :etc %><br />
