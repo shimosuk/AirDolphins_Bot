@@ -45,3 +45,25 @@ div#main {
   margin-right: auto;
   width: 80%;
 }
+
+// スケジュール管理画面
+#schedule_list {
+  fieldset {
+    margin-bottom: 10pt;
+    .one_day {
+      padding: 3pt 20pt;
+      border-bottom: 2px dashed #000EEE;
+      div { text-align: left; }
+      p {
+        text-align: center;
+        font-size: 15pt;
+        span {
+          padding: 3pt;
+        }
+        strong {
+          font-size: 20pt;
+        }
+      }
+    }
+  }
+}
